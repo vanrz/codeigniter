@@ -25,7 +25,8 @@
                     
                     </tbody>
                 </table>
-    <a href="<?php echo site_url('Procesador/agregar')?>">Agregar Ruta</a>
+    <a href="<?php echo site_url('formularioRuta')?>">Agregar Ruta</a> 
+    
 </body>
 </html>
 
