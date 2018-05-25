@@ -3,11 +3,13 @@ class estaciones extends CI_Model
 {
 
     function obtenerListado ($id =" "){//hacer una busqueda por medio del objeto db por medio de la tabla ruta
-        
+        $query="";
         if(!empty($id)){
-            
-            $query = $this->db->get('estaciones');
+             $this->db->where('id', $id);
+            $query = $this->db->get('estacion');
            return $query->result_array();
+		}else{
+            $query = $this->db->get('estacion');
         }
     }
     
@@ -15,7 +17,7 @@ class estaciones extends CI_Model
       public function insertarEstacion($data = array()) {
         
         $data['id']='NULL';
-        $insertar = $this->db->insert('estaciones', $data);
+        $insertar = $this->db->insert('estacion', $data);
          
         if($insertar){
             return $this->db->insert_id();
@@ -23,11 +25,11 @@ class estaciones extends CI_Model
             return false;
         }
       }
+	function eliminar($id){
+        $this->db->where('id', $id);
+        $this->db->delete('estacion');
+    }
 }
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
