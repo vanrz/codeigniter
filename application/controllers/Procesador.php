@@ -23,21 +23,32 @@ class Procesador extends CI_Controller{//siempre debe extender a esa clase
         $datosFormulario = array();
         
             
-            $datosFormulario = array(//arreglo llamadodatos formularios con un campo nombre cuyo valor es ek de 
-                
-                'estacion' => $this->input->post('estacion')
+            
+            $datosFormulario = array(
+                'estacion' => $this->input->post(estacion'),
+				'descripcion' => $this->input->post('descripcion')
+                'latitud' => $this->input->post('latitud'),
+                'longitud' => $this->input->post('longitud'),
+               
             );
             
-            $insertar = $this->estaciones->insertarEstacion($datosFormulario);
-            
-             $data['post'] = $datosFormulario;
-        $data['title'] = 'Crear Estacion';
+            $insertar = $this->estaciones->insertar($datosFormulario);
+            if($insertar){
+                $this->session->set_userdata('success_msg', 'Se insertó la estacion.');
+                redirect('/Procesador');
+            }else{
+                $data['error_msg'] = 'No se pudo insertar la estacion.';
+            }
+           
+        }
+        
+        $data['post'] = $datosFormulario;
+        $data['title'] = 'Crear estacion';
         $data['action'] = 'agregar';
         
-        $this->load->view('formularioEstaciones', $data);
-     }
-
-}
+        $this->load->view('agregarEstacion', $data);
+        
+    }
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
