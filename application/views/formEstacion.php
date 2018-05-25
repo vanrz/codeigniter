@@ -22,6 +22,7 @@
                             <th>descripcion</th>
                             <th>latitud</th>
                             <th>altitud</th>
+			<th>eliminar</th>
                         </tr>
                     </thead>
                     <tbody id="userData">
@@ -30,10 +31,10 @@
                             <tr>
                                 <td><?php echo $estaciones['id']; ?></td>
                                 <td><?php echo $estaciones['estacion']; ?></td>
-								 <td><?php echo $estaciones['descripcion']; ?></td> 
-								<td><?php echo $estaciones['latitud']; ?></td> 
-								<td><?php echo $estaciones['altitud']; ?></td>
-								<td><a href="<?php echo site_url('Procesador/eliminar/'.$estacion['id'].'/')?>">eliminar</a></td>
+				<td><?php echo $estaciones['descripcion']; ?></td> 
+				<td><?php echo $estaciones['latitud']; ?></td> 
+				<td><?php echo $estaciones['altitud']; ?></td>
+				<td><a href="<?php echo site_url('Procesador/eliminar/'.$estacion['id'].'/')?>">eliminar</a></td>
 								
                             </tr>
                             <?php }
