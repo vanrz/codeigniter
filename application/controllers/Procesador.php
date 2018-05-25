@@ -48,6 +48,14 @@ class Procesador extends CI_Controller{//siempre debe extender a esa clase
         
         $this->load->view('agregarEstacion', $data);
         
+	public function eliminar($id=""){
+            
+        $this->staciones->eliminar($id);
+ 
+        $data['estacion'] = $this->estaciones-> obtenerListado();
+        $this->load->view('formulario', $data);
+        
+    }
     }
 /* 
  * To change this license header, choose License Headers in Project Properties.
