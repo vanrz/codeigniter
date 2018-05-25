@@ -30,6 +30,11 @@
                             <tr>
                                 <td><?php echo $estaciones['id']; ?></td>
                                 <td><?php echo $estaciones['estacion']; ?></td>
+								 <td><?php echo $estaciones['descripcion']; ?></td> 
+								<td><?php echo $estaciones['latitud']; ?></td> 
+								<td><?php echo $estaciones['altitud']; ?></td>
+								<td><a href="<?php echo site_url('Procesador/eliminar/'.$estacion['id'].'/')?>">eliminar</a></td>
+								
                             </tr>
                             <?php }
                         }?>
@@ -38,17 +43,13 @@
                 </table>
     <br>
     <br>
-    
+    <a href="<?php echo site_url('Procesador/agregarEstacion')?>">Agregar Estacion</a>
     <a href="<?php echo site_url('formularioEstaciones')?>">Actualizar Estacion</a> 
-     <a href="<?php echo site_url('formularioEstaciones')?>">Eliminar Estacion</a> 
-     
+  
+	</div>     
 </body>
 </html>
 
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
